@@ -47,7 +47,7 @@ while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) 
                 #verifica si el termino de busqueda se relaciona con los diccionarios
                 if (sValor.find(sEnfermedadIngresada)>= 0): #el término ingresado busca en la clave, en caso no lo encuentre bota -1
 
-                    #agrega a la lista de valores relacionados
+                    #almacenamiento de claves, sDatos adquiere las llaves del subdiccionario del diccionario dCentrosMedicos dependiendo de lo que valga sValor
                     lParecidos.append(sValor)
                     
                     #almacenamiento de claves
@@ -166,7 +166,7 @@ while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) 
 
         #cuando la opcion es "c"
         if (sOpcion.lower() == "c"):
-            bInicioPrograma = False #deja de ejecutarse el programa
+            bInicioPrograma = False #cuando es falso, el programa termina. Esto es para cuando el usuario quiera dejar de usarlo.
             break
             
 
