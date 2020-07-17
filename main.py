@@ -24,7 +24,7 @@ sNingunTermino = sLinea+"\n  No se encontraron terminos relacionados\n"+sLinea
 
 while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) el bucle seguirá mostrando el programa ///cambio de condición al final///
     
-    try: # try sirve como precaución, ya que es un excepción. En caso no funcione alguna parte de nuestro código, el try omita el error para que el programa continúe. ///en caso de error, salta a la línea 172 ///
+    try: #try sirve como precaución, ya que es un excepción algorítmica. En caso no funcione alguna parte de nuestro código, el try omita el error para que el programa continúe. ///en caso de error, salta a la línea 172 ///
 
         sOpcion = str(input(sMensajeEntrada))
 
@@ -172,7 +172,7 @@ while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) 
 
     #captura los errores de los programas
     except:
-        print("Error")
+        print("Error") #imprimirá "error" cuando ocurra un error durante la ejecución del programa y permitirá que continúe el bucle  
 
 
 
