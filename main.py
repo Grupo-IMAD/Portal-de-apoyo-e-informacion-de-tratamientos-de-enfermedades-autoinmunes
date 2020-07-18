@@ -4,14 +4,13 @@ import DiccionariosCentrosMedicos as Centros
 #as es para llamar de otra forma a los módulos
 #las letras antepuestas en las variables indican el tipo de dato
 #creacion de variables globales 
-        # \n —> salto de linea  
+        #\n —> salto de linea  
 
 bInicioPrograma = True
-sLinea = ("-"*43) 
-sEspacio1 =  (" "*13) 
-sEspacio2 =  (" "*7)  
 
-sMensajeEntrada = sEspacio2+"Portal de apoyo e información\nde tratamientos de enfermedades autoinmunes\n"+sLinea+"\n"+sEspacio1+"Ingrese la opción\n"+sLinea+"\n(a) Buscar centros medicos\n(b) Informacion de enfermedades autoinmunes\n(c) Salir\n" 
+sLinea = ("-"*43)
+
+sMensajeEntrada = (" "*7)+"Portal de apoyo e información\nde tratamientos de enfermedades autoinmunes\n"+sLinea+"\n"+(" "*13)+"Ingrese la opción\n"+sLinea+"\n(a) Buscar centros medicos\n(b) Informacion de enfermedades autoinmunes\n(c) Salir\n" 
 
 sMensajeEnfermedad = "Ingrese una enfermedad o un termino:\n" 
 
@@ -20,11 +19,9 @@ sMensajeLugar = "Ingrese un lugar o término:\n"
 sNingunTermino = sLinea+"\n  No se encontraron terminos relacionados\n"+sLinea 
 
 #bucle de entrada de programa
-
-
 while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) el bucle seguirá mostrando el programa ///cambio de condición al final///
-    
-    try: #try sirve como precaución, ya que es un excepción algorítmica. En caso no funcione alguna parte de nuestro código, el try omita el error para que el programa continúe. ///en caso de error, salta a la línea 172 ///
+
+    try: # try sirve como precaución, ya que es un excepción. En caso no funcione alguna parte de nuestro código, el try omite el error para que el programa continúe. ///en caso de error, salta a la línea 156 ///
 
         sOpcion = str(input(sMensajeEntrada))
 
@@ -33,7 +30,7 @@ while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) 
 
             #ingreso de palabra clave
             sEnfermedadIngresada = str(input(sMensajeLugar))
-            sEnfermedadIngresada = sEnfermedadIngresada.upper()
+            sEnfermedadIngresada = sEnfermedadIngresada.upper() #convierte las minusculas del input en mayusculas
 
             #almacenamiento de claves del diccionario
             lNombres = Centros.dCentrosMedicos.keys()
@@ -47,13 +44,12 @@ while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) 
                 #verifica si el termino de busqueda se relaciona con los diccionarios
                 if (sValor.find(sEnfermedadIngresada)>= 0): #el término ingresado busca en la clave, en caso no lo encuentre bota -1
 
-                    #almacenamiento de claves, sDatos adquiere las llaves del subdiccionario del diccionario dCentrosMedicos dependiendo de lo que valga sValor
+                    #agrega a la lista de valores relacionados de las llaves del diccionario dCentrosMedicos
                     lParecidos.append(sValor)
                     
-                    #almacenamiento de claves
+                    #almacenamiento de claves, sDatos adquiere las llaves del subdiccionario del diccionario dCentrosMedicos dependiendo de lo que valga sValor
                     sDatos = (Centros.dCentrosMedicos[sValor].keys())
-            #termina for
-
+            
             #busqueda de posicion para busqueda de diccionario
             iPosicion = 0
 
@@ -143,19 +139,6 @@ while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) 
                 #recorrido del diccionario con la clave especifica
                 for sClave in sDatos:
 
-                  
-                    #verifica si es la clave sintomas para enumerar los sintomas (línea - 148)
-                    if(sClave == "SINTOMAS"):
-                        print(sClave)
-                        print("- ",end="")
-                        
-                        #reemplaza las ',' con salto de linea para enumerarlas
-                        print(Diccionario.dEnfermedades[lParecidos[iOpcion]][sClave].replace(",","\n-"))
-                        print(sLinea)
-                    #termina el if enumerando los síntomas (línea - 156), si no estuviera; los síntomas aparecen como texto corrido                    
-
-                    #muestra normalmente los elementos, no como los síntomas
-                    else:
                         print(sClave)
                         print(Diccionario.dEnfermedades[lParecidos[iOpcion]][sClave])
                         print(sLinea)                       
@@ -169,10 +152,9 @@ while bInicioPrograma: #mientras se cumpla la condición (bInicioPrograma=True) 
             bInicioPrograma = False #cuando es falso, el programa termina. Esto es para cuando el usuario quiera dejar de usarlo.
             break
             
-
     #captura los errores de los programas
     except:
-        print("Error") #imprimirá "error" cuando ocurra un error durante la ejecución del programa y permitirá que continúe el bucle  
+        print("Error")
 
 
 
